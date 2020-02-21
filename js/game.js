@@ -38,40 +38,49 @@ $(window).load(function() {
 	game.init();
 });
 
+//Variable que controla todos los aspectos generales relacionados con el juego
 var game = {
-	//Comenzar inicialización de objetos
+	
+	//Función para inicializar los componentes del juego
 	init: function(){
-		//Inicializar objetos
+		
 		loader.init();
 		levels.init();
 		mouse.init();
 		
 		game.backgroundMusic = loader.loadSound('audio/gurdonark-kindergarten');
-		
 		game.slingshotReleasedSound = loader.loadSound('audio/released');
 		game.bounceSound = loader.loadSound('audio/bounce');
 		game.breakSound = {
 			"glass": loader.loadSound('audio/glassbreak'),
 			"wood": loader.loadSound('audio/woodbreak')
 		};
+		
 		//Ocultar todas las capas del juego y mostrar la pantalla de inicio
 		$('.gamelayer').hide();
 		$('#gamestartscreen').show();
+		
 		//Obtener manejador para el canvas del juego y el contexto
 		game.canvas = $('#gamecanvas')[0];
 		game.context = game.canvas.getContext('2d');
 	},
+	
+	//Función que controla cuando debe iniciarse la música de fondo
 	startBackgroundMusic:function(){
 		var toggleImage = $("#togglemusic")[0];	
 		game.backgroundMusic.play();
 		toggleImage.src="images/icons/sound.png";	
 	},
+	
+	//Función que controla cuando debe pararse la música de fondo
 	stopBackgroundMusic:function(){
 		var toggleImage = $("#togglemusic")[0];	
 		toggleImage.src="images/icons/nosound.png";	
 		game.backgroundMusic.pause();
-		game.backgroundMusic.currentTime = 0; // Ir al comienzo de la canción
+		game.backgroundMusic.currentTime = 0;
 	},
+	
+	//Función que controla si se activa o desactiva manualmente la música de fondo
 	toggleBackgroundMusic:function(){
 		var toggleImage = $("#togglemusic")[0];
 		if(game.backgroundMusic.paused){
@@ -82,23 +91,32 @@ var game = {
 			$("#togglemusic")[0].src="images/icons/nosound.png";
 		}
 	},
+	
+	//Función que muestra la pantalla de selección de niveles
 	showLevelScreen: function(){
 		$('.gamelayer').hide();
 		$('#levelselectscreen').show('slow');
 	},
+	
+	//Función que recarga el actual nivel
 	restartLevel:function(){
 		window.cancelAnimationFrame(game.animationFrame);		
 		game.lastUpdateTime = undefined;
 		levels.load(game.currentLevel.number);
 	},
+	
+	//Función que carga el siguiente nivel
 	startNextLevel:function(){
 		window.cancelAnimationFrame(game.animationFrame);		
 		game.lastUpdateTime = undefined;
 		levels.load(game.currentLevel.number+1);
 	},
+	
 	mode:"intro",
 	slingshotX:140,
 	slingshotY:280,
+	
+	//Función que controla el inicio del juego en sí
 	start:function(){
 		$('.gamelayer').hide();
 		$('#gamecanvas').show();
@@ -109,17 +127,14 @@ var game = {
 		game.ended = false;
 		game.animationFrame = window.requestAnimationFrame(game.animate,game.canvas);
 	},
-	// Maximum panning speed per frame in pixels
+	
 	maxSpeed:3,
-	// Minimum and Maximum panning offset
 	minOffset:0,
 	maxOffset:300,
-	// Current panning offset
 	offsetLeft:0,
-	// The game score
 	score:0,
 
-	//Pan the screen to center on newCenter
+	//Función que controla el desplazamiento
 	panTo:function(newCenter){
 		if (Math.abs(newCenter-game.offsetLeft-game.canvas.width/4)>0
 			&& game.offsetLeft <= game.maxOffset && game.offsetLeft >= game.minOffset){
@@ -142,6 +157,8 @@ var game = {
 		}
 		return false;
 	},
+	
+	//Función que cuenta el número de heroes y villanos restantes
 	countHeroesAndVillains:function(){
 		game.heroes = [];
 		game.villains = [];
@@ -156,6 +173,8 @@ var game = {
 			}
 		}
 	},
+	
+	//Función que controla el lanzamineto de los héroes cuando el ratón está sobre ellos
 	mouseOnCurrentHero:function(){
 		if(!game.currentHero){
 			return false;
@@ -163,9 +182,12 @@ var game = {
 		var position = game.currentHero.GetPosition();
 		var distanceSquared = Math.pow(position.x*box2d.scale - mouse.x-game.offsetLeft,2) + Math.pow(position.y*box2d.scale-mouse.y,2);
 		var radiusSquared = Math.pow(game.currentHero.GetUserData().radius,2);		
-		return (distanceSquared<= radiusSquared);	
+		return (distanceSquared <= radiusSquared);	
 	},
+	
+	//Función que controla el juego
 	handlePanning:function(){
+		
 		if(game.mode=="intro"){
 			if(game.panTo(700)){
 				game.mode = "load-next-hero";
@@ -217,7 +239,6 @@ var game = {
 			}
 		}
 
-
 		if (game.mode == "load-next-hero"){
 			game.countHeroesAndVillains();
 			
@@ -257,8 +278,10 @@ var game = {
 		}
 		
 	},
+	
+	//Función que muestra la pantalla final al acabar un nivel
 	showEndingScreen:function(){
-		//game.stopBackgroundMusic();				
+		game.stopBackgroundMusic();				
 		if (game.mode=="level-success"){			
 			if(game.currentLevel.number<levels.data.length-1){
 				$('#endingmessage').html('Level Complete. Well Done!!!');
@@ -271,10 +294,12 @@ var game = {
 			$('#endingmessage').html('Failed. Play Again?');
 			$("#playnextlevel").hide();
 		}		
-
 		$('#endingscreen').show();
 	},
+	
+	//Función que controla la animación del juego
 	animate:function(){
+		
 		game.handlePanning();
 		
 		var currentTime = new Date().getTime();
@@ -296,7 +321,10 @@ var game = {
 		if(!game.ended){
 			game.animationFrame = window.requestAnimationFrame(game.animate,game.canvas);
 		}
+		
 	},
+	
+	//Funcion que dibuja todos los cuerpos correspondientes al nivel
 	drawAllBodies:function(){
 		box2d.world.DrawDebugData();
 		for (var body = box2d.world.GetBodyList(); body; body = body.GetNext()) {
@@ -320,6 +348,7 @@ var game = {
 		}
 	},
 	
+	//Función que dibuja el arco de la onda
 	drawSlingshotBand:function(){
 		game.context.strokeStyle = "rgb(68,31,11)"; // Color marrón oscuro
 		game.context.lineWidth = 6; // Dibuja una línea gruesa
@@ -332,8 +361,6 @@ var game = {
 	
 		var heroFarEdgeX = heroX - radius * Math.cos(angle);
 		var heroFarEdgeY = heroY - radius * Math.sin(angle);
-	
-	
 	
 		game.context.beginPath();
 		// Iniciar la línea desde la parte superior de la honda (la parte trasera)
@@ -356,9 +383,12 @@ var game = {
 	},
 }
 
+//Variable que controla los niveles del juego
 var levels = {
+	
 	data:[
-	 {   // Primer nivel 
+	//Primer nivel
+	{  
 		foreground:'desert-foreground',
 		background:'clouds-background',
 		entities:[
@@ -376,35 +406,107 @@ var levels = {
 			{type:"hero", name:"orange",x:80,y:405},
 			{type:"hero", name:"apple",x:140,y:405},
 		]
-	 },
-		{   // Segundo nivel
-			foreground:'desert-foreground',
-			background:'clouds-background',
-			entities:[
-				{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
-				{type:"ground", name:"wood", x:185,y:390,width:30,height:80,isStatic:true},
-	
-				{type:"block", name:"wood", x:820,y:380,angle:90,width:100,height:25},
-				{type:"block", name:"wood", x:720,y:380,angle:90,width:100,height:25},
-				{type:"block", name:"wood", x:620,y:380,angle:90,width:100,height:25},
-				{type:"block", name:"glass", x:670,y:317.5,width:100,height:25},
-				{type:"block", name:"glass", x:770,y:317.5,width:100,height:25},				
+	},
+	//Segundo nivel
+	{   
+		foreground:'desert-foreground',
+		background:'clouds-background',
+		entities:[
+			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:390,width:30,height:80,isStatic:true},
 
-				{type:"block", name:"glass", x:670,y:255,angle:90,width:100,height:25},
-				{type:"block", name:"glass", x:770,y:255,angle:90,width:100,height:25},
-				{type:"block", name:"wood", x:720,y:192.5,width:100,height:25},	
+			{type:"block", name:"wood", x:820,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:720,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:620,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:670,y:317.5,width:100,height:25},
+			{type:"block", name:"glass", x:770,y:317.5,width:100,height:25},				
 
-				{type:"villain", name:"burger",x:715,y:155,calories:590},
-				{type:"villain", name:"fries",x:670,y:405,calories:420},
-				{type:"villain", name:"sodacan",x:765,y:400,calories:150},
+			{type:"block", name:"glass", x:670,y:255,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:770,y:255,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:720,y:192.5,width:100,height:25},	
 
-				{type:"hero", name:"strawberry",x:30,y:415},
-				{type:"hero", name:"orange",x:80,y:405},
-				{type:"hero", name:"apple",x:140,y:405},
-			]
-		}
+			{type:"villain", name:"burger",x:715,y:155,calories:590},
+			{type:"villain", name:"fries",x:670,y:405,calories:420},
+			{type:"villain", name:"sodacan",x:765,y:400,calories:150},
+
+			{type:"hero", name:"strawberry",x:30,y:415},
+			{type:"hero", name:"orange",x:80,y:405},
+			{type:"hero", name:"apple",x:140,y:405},
+		]
+	},
+	//Tercer nivel
+	{   
+		foreground:'desert-foreground',
+		background:'clouds-background',
+		entities:[
+			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:390,width:30,height:80,isStatic:true},
+			
+			{type:"block", name:"wood", x:525,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:515,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:500,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:510,y:290,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:520,y:290,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:515,y:200,angle:90,width:100,height:25},
+
+			{type:"villain", name:"fries",x:565,y:380,calories:420},
+			
+			{type:"block", name:"wood", x:650,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:750,y:380,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:700,y:280,width:120,height:30},
+			{type:"block", name:"glass", x:650,y:200,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:750,y:200,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:700,y:120,width:120,height:30},
+			
+			{type:"villain", name:"fries",x:700,y:380,calories:420},
+			{type:"villain", name:"burger",x:700,y:225,calories:420},
+			
+			{type:"hero", name:"apple",x:30,y:415},
+			{type:"hero", name:"orange",x:80,y:405},
+			{type:"hero", name:"orange",x:140,y:405}
+		]
+	},
+	//Cuarto nivel
+	{   
+		foreground:'desert-foreground',
+		background:'clouds-background',
+		entities:[
+			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:390,width:30,height:80,isStatic:true},
+			
+			{type:"block", name:"wood", x:550,y:420,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:500,y:420,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:450,y:420,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:500,y:390,width:140,height:15},
+			{type:"block", name:"glass", x:450,y:320,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:450,y:360,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:550,y:320,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:550,y:360,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:500,y:290,width:140,height:15},
+			{type:"block", name:"wood", x:550,y:250,angle:90,width:100,height:20},
+			{type:"block", name:"wood", x:450,y:250,angle:90,width:100,height:20},
+			{type:"block", name:"glass", x:500,y:200,width:140,height:15},
+			
+			{type:"villain", name:"sodacan",x:500,y:270,calories:350},
+			
+			{type:"block", name:"glass", x:700,y:420,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:750,y:420,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:800,y:420,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:750,y:375,width:140,height:15},
+			{type:"block", name:"wood", x:700,y:320,angle:90,width:100,height:20},
+			{type:"block", name:"wood", x:800,y:320,angle:90,width:100,height:20},
+			{type:"block", name:"glass", x:750,y:250,width:140,height:15},
+			{type:"block", name:"glass", x:750,y:200,width:25,height:25},
+			
+			{type:"villain", name:"burger",x:750,y:350,calories:350},
+			
+			{type:"hero", name:"orange",x:30,y:415},
+			{type:"hero", name:"strawberry",x:80,y:405}
+		]
+	}
 	],
 	
+	//Función que inicializa los niveles
 	init: function(){
 		var html = "";
 		for(var i=0; i<levels.data.length; i++){
@@ -419,7 +521,9 @@ var levels = {
 		});
 	},
 	
+	//Función que carga los niveles
 	load:function(number){
+		
 		 //Inicializar box2d world cada vez que se carga un nivel
 		box2d.init();
 
@@ -449,9 +553,11 @@ var levels = {
 	   } else {
 		   loader.onload = game.start;
 	   }
+	   
 	}
 }
 
+//Variable que controla todas las entidades que hay en el juego
 var entities = {
 	definitions:{
 		"glass":{
@@ -519,7 +625,8 @@ var entities = {
 			restitution:0.4,	
 		},
 	},
-	// Tomar la entidad, crear un cuerpo box2d y aÃ±adirlo al mundo
+	
+	// Función que crea la entidad box2d y la añade al mundo
 	create:function(entity){
 		var definition = entities.definitions[entity.name];	
 		if(!definition){
@@ -563,7 +670,7 @@ var entities = {
 		}			
 	},
 
-	// Tomar la entidad, su posiciÃ³n y Ã¡ngulo y dibujar en el lienzo de juego
+	//Función que toma la entidad, su posición y ángulo y la dibuja en el mundo
 	draw:function(entity,position,angle){
 		game.context.translate(position.x*box2d.scale-game.offsetLeft,position.y*box2d.scale);
 		game.context.rotate(angle);
@@ -592,15 +699,19 @@ var entities = {
 
 }
 
+//Variable con todo lo relacionado con Box2D
 var box2d = {
+	
 	scale:30,
+	
 	init:function(){
-		// Configurar el mundo de box2d que harÃ¡ la mayorÃ­a de los cÃ¡lculos de la fÃ­sica
-		var gravity = new b2Vec2(0,9.8); //Declara la gravedad como 9,8 m / s ^ 2 hacia abajo
-		var allowSleep = true; //Permita que los objetos que estÃ¡n en reposo se queden dormidos y se excluyan de los cÃ¡lculos
+		
+		//Configurar el mundo de box2d que hará la mayoría de cálculos de la física
+		var gravity = new b2Vec2(0,9.8); 
+		var allowSleep = true; 
 		box2d.world = new b2World(gravity,allowSleep);
 		
-		// Configurar depuraciÃ³n de dibujo
+		//Configurar la depuración del dibujo
 		var debugContext = document.getElementById('debugcanvas').getContext('2d');
 		var debugDraw = new b2DebugDraw();
 		debugDraw.SetSprite(debugContext);
@@ -618,10 +729,7 @@ var box2d = {
 			var entity2 = body2.GetUserData();
 
 			var impulseAlongNormal = Math.abs(impulse.normalImpulses[0]);
-			// Este listener es llamado con mucha frecuencia. Filtra los impulsos muy prqueÃ±os.
-			// DespuÃ©s de probar diferentes valores, 5 parece funcionar bien
-			if(impulseAlongNormal>5){
-				// Si los objetos tienen una salud, reduzca la salud por el valor del impulso			
+			if(impulseAlongNormal>5){			
 				if (entity1.health){
 					entity1.health -= impulseAlongNormal;
 				}	
@@ -629,8 +737,7 @@ var box2d = {
 				if (entity2.health){
 					entity2.health -= impulseAlongNormal;
 				}	
-		
-				// Si los objetos tienen un sonido de rebote, reproducirlos				
+			
 				if (entity1.bounceSound){
 					entity1.bounceSound.play();
 				}
@@ -643,14 +750,15 @@ var box2d = {
 		box2d.world.SetContactListener(listener);
 		
 	},  
+	
 	step:function(timeStep){
-		// velocidad de las iteraciones = 8
-		// posiciÃ³n de las iteraciones = 3
 		if(timeStep > 2/60){
 			timeStep = 2/60;
 		}
 		box2d.world.Step(timeStep,8,3);
 	},
+	
+	//Función que crea rectángulos
 	createRectangle:function(entity,definition){
 			var bodyDef = new b2BodyDef;
 			if(entity.isStatic){
@@ -680,6 +788,7 @@ var box2d = {
 			return body;
 	},
 	
+	//Función que crea círculos
 	createCircle:function(entity,definition){
 			var bodyDef = new b2BodyDef;
 			if(entity.isStatic){
@@ -709,7 +818,9 @@ var box2d = {
 	},  
 }
 
+//Variable relacionada con la carga de assets
 var loader = {
+	
 	loaded: true,
 	loadedCount: 0,
 	totalCount: 0,
@@ -764,6 +875,7 @@ var loader = {
 	
 }
 
+//Variable relacionada con los movimientos del ratón
 var mouse = {
 	x:0,
 	y:0,
