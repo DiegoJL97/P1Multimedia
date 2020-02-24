@@ -528,7 +528,7 @@ var levels = {
 			{type:"villain", name:"sodaglass",x:605,y:310,calories:350},
 
 			{type:"hero", name:"apple",x:80,y:435},
-			{type:"hero", name:"strawberry",x:140,y:435},
+			{type:"hero", name:"lemon",x:140,y:435},
 		]
 	}
 	],
@@ -560,7 +560,6 @@ var levels = {
 		$('#score').html('Score: '+game.score);
 		game.currentHero = undefined;
 		var level = levels.data[number];
-		console.log(number);
 
 
 		//Cargar las imÃ¡genes de fondo, primer plano y honda
