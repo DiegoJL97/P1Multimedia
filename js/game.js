@@ -441,7 +441,7 @@ var levels = {
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:400,width:1000,height:20,isStatic:true},
-			{type:"ground", name:"wood", x:185,y:380,width:30,height:40,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:340,width:30,height:60,isStatic:true},
 		
 			{type:"block", name:"wood", x:525,y:340,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:515,y:340,angle:90,width:100,height:25},
@@ -473,7 +473,7 @@ var levels = {
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
-			{type:"ground", name:"wood", x:185,y:410,width:30,height:80,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:400,width:30,height:80,isStatic:true},
 			
 			{type:"block", name:"wood", x:550,y:440,angle:90,width:25,height:25},
 			{type:"block", name:"wood", x:500,y:440,angle:90,width:25,height:25},
@@ -560,6 +560,7 @@ var levels = {
 		$('#score').html('Score: '+game.score);
 		game.currentHero = undefined;
 		var level = levels.data[number];
+		console.log(number);
 
 
 		//Cargar las imÃ¡genes de fondo, primer plano y honda
@@ -567,6 +568,19 @@ var levels = {
 		game.currentLevel.foregroundImage = loader.loadImage("images/backgrounds/"+level.foreground+".png");
 		game.slingshotImage = loader.loadImage("images/slingshot.png");
 		game.slingshotFrontImage = loader.loadImage("images/slingshot-front.png");
+		switch(number){
+			case 0: game.slingshotY = 280;
+					break;
+			case 1: game.slingshotY = 280;
+					break;
+			case 2: game.slingshotY = 245;
+					break;
+			case 3: game.slingshotY = 300;
+					break;
+			case 4: game.slingshotY = 320;
+					break;
+		}
+		
 
 		// Cargar todas la entidades
 		for (var i = level.entities.length - 1; i >= 0; i--){	
