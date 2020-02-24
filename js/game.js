@@ -441,7 +441,7 @@ var levels = {
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:400,width:1000,height:20,isStatic:true},
-			{type:"ground", name:"wood", x:185,y:360,width:30,height:60,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:380,width:30,height:40,isStatic:true},
 		
 			{type:"block", name:"wood", x:525,y:340,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:515,y:340,angle:90,width:100,height:25},
@@ -462,9 +462,8 @@ var levels = {
 			{type:"villain", name:"fries",x:700,y:340,calories:420},
 			{type:"villain", name:"burger",x:700,y:185,calories:420},
 			
-			{type:"hero", name:"apple",x:30,y:375},
-			{type:"hero", name:"orange",x:80,y:365},
-			{type:"hero", name:"orange",x:140,y:365}
+			{type:"hero", name:"watermelon",x:30,y:375},
+			{type:"hero", name:"apple",x:80,y:365}
 		]
 	},
 	//Cuarto nivel
@@ -500,10 +499,10 @@ var levels = {
 			{type:"block", name:"glass", x:750,y:270,width:140,height:15},
 			{type:"block", name:"glass", x:750,y:220,width:25,height:25},
 			
-			{type:"villain", name:"burger",x:750,y:370,calories:350},
+			{type:"villain", name:"pizza",x:750,y:370,calories:350},
 			
-			{type:"hero", name:"orange",x:30,y:435},
-			{type:"hero", name:"strawberry",x:80,y:425}
+			{type:"hero", name:"coconut",x:30,y:435},
+			{type:"hero", name:"lemon",x:80,y:425}
 		]
 	}
 	],
@@ -587,6 +586,15 @@ var entities = {
 			friction:0.5,
 			restitution:0.4,	
 		},
+		"pizza":{
+			shape:"rectangle",
+			fullHealth:80,
+			width:40,
+			height:60,
+			density:1,
+			friction:0.5,
+			restitution:0.7	
+		},
 		"sodacan":{
 			shape:"rectangle",
 			fullHealth:80,
@@ -623,6 +631,27 @@ var entities = {
 			shape:"circle",
 			radius:15,
 			density:2.0,
+			friction:0.5,
+			restitution:0.4,	
+		},
+		"coconut":{
+			shape:"circle",
+			radius:25,
+			density:2.0,
+			friction:0.5,
+			restitution:0.4,	
+		},
+		"watermelon":{
+			shape:"circle",
+			radius:30,
+			density:2.0,
+			friction:0.5,
+			restitution:0.4,	
+		},
+		"lemon":{
+			shape:"circle",
+			radius:15,
+			density:1.2,
 			friction:0.5,
 			restitution:0.4,	
 		},
