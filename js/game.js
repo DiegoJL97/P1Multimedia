@@ -513,9 +513,9 @@ var levels = {
 			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
 			{type:"ground", name:"wood", x:185,y:420,width:30,height:80,isStatic:true},
 
-			{type:"block", name:"glass", x:520,y:410,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:510,y:410,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:580,y:410,angle:90,width:100,height:25},								
-			{type:"villain", name:"burger",x:550,y:4100,calories:350},
+			{type:"villain", name:"burger",x:550,y:410,calories:350},
 
 			{type:"block", name:"glass", x:720,y:410,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:660,y:410,angle:90,width:100,height:25},								
@@ -525,7 +525,7 @@ var levels = {
 
 			{type:"block", name:"glass", x:550,y:310,angle:126,width:150,height:25},
 			{type:"block", name:"glass", x:660,y:310,angle:50,width:150,height:25},								
-			{type:"villain", name:"sodacan",x:605,y:310,calories:350},
+			{type:"villain", name:"sodaglass",x:605,y:310,calories:350},
 
 			{type:"hero", name:"apple",x:80,y:435},
 			{type:"hero", name:"strawberry",x:140,y:435},
@@ -622,6 +622,15 @@ var entities = {
 			restitution:0.7	
 		},
 		"sodacan":{
+			shape:"rectangle",
+			fullHealth:80,
+			width:40,
+			height:60,
+			density:1,
+			friction:0.5,
+			restitution:0.7,	
+		},
+		"sodaglass":{
 			shape:"rectangle",
 			fullHealth:80,
 			width:40,
