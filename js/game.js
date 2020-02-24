@@ -436,72 +436,74 @@ var levels = {
 	},
 	//Tercer nivel
 	{   
-		foreground:'desert-foreground',
+		//He restado 50px a cada nivel de la y
+		foreground:'nature-foreground',
 		background:'clouds-background',
 		entities:[
-			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
-			{type:"ground", name:"wood", x:185,y:390,width:30,height:80,isStatic:true},
-			
-			{type:"block", name:"wood", x:525,y:380,angle:90,width:100,height:25},
-			{type:"block", name:"wood", x:515,y:380,angle:90,width:100,height:25},
-			{type:"block", name:"wood", x:500,y:380,angle:90,width:100,height:25},
-			{type:"block", name:"glass", x:510,y:290,angle:90,width:100,height:25},
-			{type:"block", name:"glass", x:520,y:290,angle:90,width:100,height:25},
-			{type:"block", name:"wood", x:515,y:200,angle:90,width:100,height:25},
+			{type:"ground", name:"dirt", x:500,y:400,width:1000,height:20,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:360,width:30,height:60,isStatic:true},
+		
+			{type:"block", name:"wood", x:525,y:340,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:515,y:340,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:500,y:340,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:510,y:250,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:520,y:250,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:515,y:150,angle:90,width:100,height:25},
 
-			{type:"villain", name:"fries",x:565,y:380,calories:420},
+			{type:"villain", name:"fries",x:565,y:340,calories:420},
 			
-			{type:"block", name:"wood", x:650,y:380,angle:90,width:100,height:25},
-			{type:"block", name:"wood", x:750,y:380,angle:90,width:100,height:25},
-			{type:"block", name:"wood", x:700,y:280,width:120,height:30},
-			{type:"block", name:"glass", x:650,y:200,angle:90,width:100,height:25},
-			{type:"block", name:"glass", x:750,y:200,angle:90,width:100,height:25},
-			{type:"block", name:"wood", x:700,y:120,width:120,height:30},
+			{type:"block", name:"wood", x:650,y:340,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:750,y:340,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:700,y:240,width:120,height:30},
+			{type:"block", name:"glass", x:650,y:160,angle:90,width:100,height:25},
+			{type:"block", name:"glass", x:750,y:160,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:700,y:80,width:120,height:30},
 			
-			{type:"villain", name:"fries",x:700,y:380,calories:420},
-			{type:"villain", name:"burger",x:700,y:225,calories:420},
+			{type:"villain", name:"fries",x:700,y:340,calories:420},
+			{type:"villain", name:"burger",x:700,y:185,calories:420},
 			
-			{type:"hero", name:"apple",x:30,y:415},
-			{type:"hero", name:"orange",x:80,y:405},
-			{type:"hero", name:"orange",x:140,y:405}
+			{type:"hero", name:"apple",x:30,y:375},
+			{type:"hero", name:"orange",x:80,y:365},
+			{type:"hero", name:"orange",x:140,y:365}
 		]
 	},
 	//Cuarto nivel
 	{   
-		foreground:'desert-foreground',
+		//He sumado 20px a cada nivel de la y
+		foreground:'desertnight-background',
 		background:'clouds-background',
 		entities:[
-			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
-			{type:"ground", name:"wood", x:185,y:390,width:30,height:80,isStatic:true},
+			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:410,width:30,height:80,isStatic:true},
 			
-			{type:"block", name:"wood", x:550,y:420,angle:90,width:25,height:25},
-			{type:"block", name:"wood", x:500,y:420,angle:90,width:25,height:25},
-			{type:"block", name:"wood", x:450,y:420,angle:90,width:25,height:25},
-			{type:"block", name:"wood", x:500,y:390,width:140,height:15},
-			{type:"block", name:"glass", x:450,y:320,angle:90,width:25,height:25},
-			{type:"block", name:"glass", x:450,y:360,angle:90,width:25,height:25},
-			{type:"block", name:"glass", x:550,y:320,angle:90,width:25,height:25},
-			{type:"block", name:"glass", x:550,y:360,angle:90,width:25,height:25},
-			{type:"block", name:"wood", x:500,y:290,width:140,height:15},
-			{type:"block", name:"wood", x:550,y:250,angle:90,width:100,height:20},
-			{type:"block", name:"wood", x:450,y:250,angle:90,width:100,height:20},
-			{type:"block", name:"glass", x:500,y:200,width:140,height:15},
+			{type:"block", name:"wood", x:550,y:440,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:500,y:440,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:450,y:440,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:500,y:410,width:140,height:15},
+			{type:"block", name:"glass", x:450,y:340,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:450,y:380,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:550,y:340,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:550,y:380,angle:90,width:25,height:25},
+			{type:"block", name:"wood", x:500,y:310,width:140,height:15},
+			{type:"block", name:"wood", x:550,y:270,angle:90,width:100,height:20},
+			{type:"block", name:"wood", x:450,y:270,angle:90,width:100,height:20},
+			{type:"block", name:"glass", x:500,y:220,width:140,height:15},
 			
-			{type:"villain", name:"sodacan",x:500,y:270,calories:350},
+			{type:"villain", name:"sodacan",x:500,y:290,calories:350},
 			
-			{type:"block", name:"glass", x:700,y:420,angle:90,width:25,height:25},
-			{type:"block", name:"glass", x:750,y:420,angle:90,width:25,height:25},
-			{type:"block", name:"glass", x:800,y:420,angle:90,width:25,height:25},
-			{type:"block", name:"glass", x:750,y:375,width:140,height:15},
-			{type:"block", name:"wood", x:700,y:320,angle:90,width:100,height:20},
-			{type:"block", name:"wood", x:800,y:320,angle:90,width:100,height:20},
-			{type:"block", name:"glass", x:750,y:250,width:140,height:15},
-			{type:"block", name:"glass", x:750,y:200,width:25,height:25},
+			{type:"block", name:"glass", x:700,y:440,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:750,y:440,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:800,y:440,angle:90,width:25,height:25},
+			{type:"block", name:"glass", x:750,y:395,width:140,height:15},
+			{type:"block", name:"wood", x:700,y:340,angle:90,width:100,height:20},
+			{type:"block", name:"wood", x:800,y:340,angle:90,width:100,height:20},
+			{type:"block", name:"glass", x:750,y:270,width:140,height:15},
+			{type:"block", name:"glass", x:750,y:220,width:25,height:25},
 			
-			{type:"villain", name:"burger",x:750,y:350,calories:350},
+			{type:"villain", name:"burger",x:750,y:370,calories:350},
 			
-			{type:"hero", name:"orange",x:30,y:415},
-			{type:"hero", name:"strawberry",x:80,y:405}
+			{type:"hero", name:"orange",x:30,y:435},
+			{type:"hero", name:"strawberry",x:80,y:425}
 		]
 	}
 	],
