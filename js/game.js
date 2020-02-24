@@ -504,6 +504,32 @@ var levels = {
 			{type:"hero", name:"coconut",x:30,y:435},
 			{type:"hero", name:"lemon",x:80,y:425}
 		]
+	},
+	//Quinto nivel
+	{  
+		foreground:'mountains_background',
+		background:'clouds-background',
+		entities:[
+			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
+			{type:"ground", name:"wood", x:185,y:420,width:30,height:80,isStatic:true},
+
+			{type:"block", name:"glass", x:520,y:410,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:580,y:410,angle:90,width:100,height:25},								
+			{type:"villain", name:"burger",x:550,y:4100,calories:350},
+
+			{type:"block", name:"glass", x:720,y:410,angle:90,width:100,height:25},
+			{type:"block", name:"wood", x:660,y:410,angle:90,width:100,height:25},								
+			{type:"villain", name:"fries", x:690,y:410,calories:350},				
+
+			{type:"block", name:"wood", x:610,y:335,angle:0,width:350,height:25},	
+
+			{type:"block", name:"glass", x:550,y:310,angle:126,width:150,height:25},
+			{type:"block", name:"glass", x:660,y:310,angle:50,width:150,height:25},								
+			{type:"villain", name:"sodacan",x:605,y:310,calories:350},
+
+			{type:"hero", name:"apple",x:80,y:435},
+			{type:"hero", name:"strawberry",x:140,y:435},
+		]
 	}
 	],
 	
