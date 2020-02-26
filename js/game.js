@@ -57,7 +57,7 @@ var game = {
 		};
 		
 		//Ocultar todas las capas del juego y mostrar la pantalla de inicio
-		$('.gamelayer').hide();
+		$('.gamelayer').hide();		
 		$('#gamestartscreen').show();
 		
 		//Obtener manejador para el canvas del juego y el contexto
@@ -110,6 +110,18 @@ var game = {
 		window.cancelAnimationFrame(game.animationFrame);		
 		game.lastUpdateTime = undefined;
 		levels.load(game.currentLevel.number+1);
+	},
+	
+	//Función que mata al heroe una vez lanzado, evitando así el tiempo de espera hasta que se pausa
+	killCurrentHero:function(){
+		if(game.mode == "fired"){
+			box2d.world.DestroyBody(game.currentHero);
+			game.currentHero = undefined;
+			game.mode = "load-next-hero";
+		} else {
+			var killAlert = document.getElementById('alert');
+			killAlert.style.display = 'block';
+		}
 	},
 	
 	mode:"intro",
@@ -236,6 +248,12 @@ var game = {
 				game.currentHero = undefined;
 				// y carga el siguiente héroe
 				game.mode = "load-next-hero";
+			}
+			
+			//Si la alerta de no poder eliminar al heroe sigue una vez lanzado; la eliminamos
+			var killAlert = document.getElementById('alert');
+			if(killAlert.style.display != "none"){
+				killAlert.style.display = "none";
 			}
 		}
 

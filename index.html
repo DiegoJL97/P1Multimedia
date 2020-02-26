@@ -10,12 +10,17 @@
 	</head>
 	<body>
 		<div id="gamecontainer">
+			<div id="alert" class="alert">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+				<strong>Danger!</strong> You must fire the hero before you kill it.
+			</div>
 			<canvas id="gamecanvas" width="640" height="480" class="gamelayer">
 			</canvas>
 			
 			<div id="scorescreen" class="gamelayer">
 				<img id="togglemusic" src ="images/icons/sound.png" onclick="game.toggleBackgroundMusic();">
 				<img src="images/icons/prev.png" onclick="game.restartLevel();">
+				<img src="images/icons/playmusic.png" onclick="game.killCurrentHero();">
 				<span id="score">Score: 0</span>
 			</div>
 			
