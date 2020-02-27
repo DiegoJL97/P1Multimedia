@@ -48,7 +48,7 @@ var game = {
 		levels.init();
 		mouse.init();
 		
-		game.backgroundMusic = loader.loadSound('audio/gurdonark-kindergarten');
+		game.backgroundMusic = loader.loadSound('audio/theme-song');
 		game.slingshotReleasedSound = loader.loadSound('audio/released');
 		game.bounceSound = loader.loadSound('audio/bounce');
 		game.breakSound = {
