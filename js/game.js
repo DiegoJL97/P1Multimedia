@@ -49,6 +49,8 @@ var game = {
 		mouse.init();
 		
 		game.backgroundMusic = loader.loadSound('audio/theme-song');
+		game.succesMusic = loader.loadSound('audio/success');
+		game.failureMusic = loader.loadSound('audio/failure');
 		game.slingshotReleasedSound = loader.loadSound('audio/released');
 		game.bounceSound = loader.loadSound('audio/bounce');
 		game.breakSound = {
@@ -299,8 +301,9 @@ var game = {
 	
 	//Función que muestra la pantalla final al acabar un nivel
 	showEndingScreen:function(){
-		game.stopBackgroundMusic();				
-		if (game.mode=="level-success"){			
+		game.stopBackgroundMusic();			
+		if (game.mode=="level-success"){
+			game.succesMusic.play();
 			if(game.currentLevel.number<levels.data.length-1){
 				$('#endingmessage').html('Level Complete. Well Done!!!');
 				$("#playnextlevel").show();
@@ -308,7 +311,8 @@ var game = {
 				$('#endingmessage').html('All Levels Complete. Well Done!!!');
 				$("#playnextlevel").hide();
 			}
-		} else if (game.mode=="level-failure"){			
+		} else if (game.mode=="level-failure"){		
+			game.failureMusic.play();
 			$('#endingmessage').html('Failed. Play Again?');
 			$("#playnextlevel").hide();
 		}		
