@@ -407,7 +407,7 @@ var levels = {
 	data:[
 	//Primer nivel
 	{  
-		foreground:'noche-background',
+		foreground:'desert-foreground',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
@@ -415,11 +415,11 @@ var levels = {
 
 			{type:"block", name:"wood", x:520,y:380,angle:90,width:100,height:25},
 			{type:"block", name:"glass", x:520,y:280,angle:90,width:100,height:25},								
-			{type:"villain", name:"burger",x:520,y:205,calories:590},
+			{type:"villain", name:"pikachu",x:520,y:205,calories:590},
 
 			{type:"block", name:"wood", x:620,y:380,angle:90,width:100,height:25},
 			{type:"block", name:"glass", x:620,y:280,angle:90,width:100,height:25},								
-			{type:"villain", name:"fries", x:620,y:205,calories:420},				
+			{type:"villain", name:"squirtle", x:620,y:205,calories:420},				
 
 			{type:"hero", name:"superball",x:80,y:405},
 			{type:"hero", name:"pokeball",x:140,y:405},
@@ -427,7 +427,7 @@ var levels = {
 	},
 	//Segundo nivel
 	{   
-		foreground:'noche-background',
+		foreground:'desert-foreground',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
@@ -443,9 +443,9 @@ var levels = {
 			{type:"block", name:"glass", x:770,y:255,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:720,y:192.5,width:100,height:25},	
 
-			{type:"villain", name:"burger",x:715,y:155,calories:590},
-			{type:"villain", name:"fries",x:670,y:405,calories:420},
-			{type:"villain", name:"sodacan",x:765,y:400,calories:150},
+			{type:"villain", name:"pikachu",x:715,y:155,calories:590},
+			{type:"villain", name:"charmander",x:670,y:405,calories:420},
+			{type:"villain", name:"bulbasaur",x:765,y:400,calories:150},
 
 			{type:"hero", name:"quickball",x:30,y:415},
 			{type:"hero", name:"superball",x:80,y:405},
@@ -455,7 +455,7 @@ var levels = {
 	//Tercer nivel
 	{   
 		//He restado 50px a cada nivel de la y
-		foreground:'dia-background',
+		foreground:'nature-foreground',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:400,width:1000,height:20,isStatic:true},
@@ -468,7 +468,7 @@ var levels = {
 			{type:"block", name:"glass", x:520,y:250,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:515,y:150,angle:90,width:100,height:25},
 
-			{type:"villain", name:"fries",x:565,y:340,calories:420},
+			{type:"villain", name:"charmander",x:565,y:340,calories:420},
 			
 			{type:"block", name:"wood", x:650,y:340,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:750,y:340,angle:90,width:100,height:25},
@@ -477,8 +477,8 @@ var levels = {
 			{type:"block", name:"glass", x:750,y:160,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:700,y:80,width:120,height:30},
 			
-			{type:"villain", name:"fries",x:700,y:340,calories:420},
-			{type:"villain", name:"burger",x:700,y:185,calories:420},
+			{type:"villain", name:"squirtle",x:700,y:340,calories:420},
+			{type:"villain", name:"pikachu",x:700,y:185,calories:420},
 			
 			{type:"hero", name:"ultraball",x:30,y:375},
 			{type:"hero", name:"pokeball",x:80,y:365}
@@ -487,7 +487,7 @@ var levels = {
 	//Cuarto nivel
 	{   
 		//He sumado 20px a cada nivel de la y
-		foreground:'otrodia-background',
+		foreground:'desertnight-background',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
@@ -506,7 +506,7 @@ var levels = {
 			{type:"block", name:"wood", x:450,y:270,angle:90,width:100,height:20},
 			{type:"block", name:"glass", x:500,y:220,width:140,height:15},
 			
-			{type:"villain", name:"sodacan",x:500,y:290,calories:350},
+			{type:"villain", name:"bulbasaur",x:500,y:290,calories:350},
 			
 			{type:"block", name:"glass", x:700,y:440,angle:90,width:25,height:25},
 			{type:"block", name:"glass", x:750,y:440,angle:90,width:25,height:25},
@@ -517,7 +517,7 @@ var levels = {
 			{type:"block", name:"glass", x:750,y:270,width:140,height:15},
 			{type:"block", name:"glass", x:750,y:220,width:25,height:25},
 			
-			{type:"villain", name:"pizza",x:750,y:370,calories:350},
+			{type:"villain", name:"charmander",x:750,y:370,calories:350},
 			
 			{type:"hero", name:"quickball",x:30,y:435},
 			{type:"hero", name:"superball",x:80,y:425}
@@ -525,7 +525,7 @@ var levels = {
 	},
 	//Quinto nivel
 	{  
-		foreground:'anochecer-background',
+		foreground:'mountains_background',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
@@ -533,17 +533,17 @@ var levels = {
 
 			{type:"block", name:"glass", x:510,y:410,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:580,y:410,angle:90,width:100,height:25},								
-			{type:"villain", name:"burger",x:550,y:410,calories:350},
+			{type:"villain", name:"pikachu",x:550,y:410,calories:350},
 
 			{type:"block", name:"glass", x:720,y:410,angle:90,width:100,height:25},
 			{type:"block", name:"wood", x:660,y:410,angle:90,width:100,height:25},								
-			{type:"villain", name:"fries", x:690,y:410,calories:350},				
+			{type:"villain", name:"squirtle", x:690,y:410,calories:350},				
 
 			{type:"block", name:"wood", x:610,y:335,angle:0,width:350,height:25},	
 
 			{type:"block", name:"glass", x:550,y:310,angle:126,width:150,height:25},
 			{type:"block", name:"glass", x:660,y:310,angle:50,width:150,height:25},								
-			{type:"villain", name:"sodaglass",x:605,y:310,calories:350},
+			{type:"villain", name:"bulbasaur",x:605,y:310,calories:350},
 
 			{type:"hero", name:"pokeball",x:80,y:435},
 			{type:"hero", name:"ultraball",x:140,y:435},
@@ -635,15 +635,16 @@ var entities = {
 			friction:1.5,
 			restitution:0.2,	
 		},
-		"burger":{
-			shape:"circle",
+		"pikachu":{
+			shape:"rectangle",
 			fullHealth:40,
-			radius:25,
+			width:40,
+			height:60,
 			density:1,
 			friction:0.5,
 			restitution:0.4,	
 		},
-		"pizza":{
+		"charmander":{
 			shape:"rectangle",
 			fullHealth:80,
 			width:40,
@@ -652,7 +653,7 @@ var entities = {
 			friction:0.5,
 			restitution:0.7	
 		},
-		"sodacan":{
+		"squirtle":{
 			shape:"rectangle",
 			fullHealth:80,
 			width:40,
@@ -661,7 +662,7 @@ var entities = {
 			friction:0.5,
 			restitution:0.7,	
 		},
-		"sodaglass":{
+		"bulbasaur":{
 			shape:"rectangle",
 			fullHealth:80,
 			width:40,
@@ -670,15 +671,7 @@ var entities = {
 			friction:0.5,
 			restitution:0.7,	
 		},
-		"fries":{
-			shape:"rectangle",
-			fullHealth:50,
-			width:40,
-			height:50,
-			density:1,
-			friction:0.5,
-			restitution:0.6,	
-		},
+		
 		"pokeball":{
 			shape:"circle",
 			radius:25,
