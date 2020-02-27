@@ -407,7 +407,7 @@ var levels = {
 	data:[
 	//Primer nivel
 	{  
-		foreground:'desert-foreground',
+		foreground:'otrodia-background',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
@@ -427,7 +427,7 @@ var levels = {
 	},
 	//Segundo nivel
 	{   
-		foreground:'desert-foreground',
+		foreground:'dia-background',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:440,width:1000,height:20,isStatic:true},
@@ -455,7 +455,7 @@ var levels = {
 	//Tercer nivel
 	{   
 		//He restado 50px a cada nivel de la y
-		foreground:'nature-foreground',
+		foreground:'dia-background',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:400,width:1000,height:20,isStatic:true},
@@ -487,7 +487,7 @@ var levels = {
 	//Cuarto nivel
 	{   
 		//He sumado 20px a cada nivel de la y
-		foreground:'desertnight-background',
+		foreground:'anochecer-background',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
@@ -525,7 +525,7 @@ var levels = {
 	},
 	//Quinto nivel
 	{  
-		foreground:'mountains_background',
+		foreground:'noche-background',
 		background:'clouds-background',
 		entities:[
 			{type:"ground", name:"dirt", x:500,y:460,width:1000,height:20,isStatic:true},
