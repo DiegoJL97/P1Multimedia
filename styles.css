@@ -45,10 +45,10 @@
 }
 
 #loadingmessage {
-	margin-top: 400px;
+	margin-top: 200px;
 	text-align: center;
-	height: 48px;
-	color: white;
+	height: 200px;
+	color: black;
 	background: url(images/loader.gif) no-repeat center;
 	font: 12px Arial;
 }

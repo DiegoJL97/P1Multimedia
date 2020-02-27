@@ -421,8 +421,8 @@ var levels = {
 			{type:"block", name:"glass", x:620,y:280,angle:90,width:100,height:25},								
 			{type:"villain", name:"fries", x:620,y:205,calories:420},				
 
-			{type:"hero", name:"orange",x:80,y:405},
-			{type:"hero", name:"apple",x:140,y:405},
+			{type:"hero", name:"superball",x:80,y:405},
+			{type:"hero", name:"pokeball",x:140,y:405},
 		]
 	},
 	//Segundo nivel
@@ -447,9 +447,9 @@ var levels = {
 			{type:"villain", name:"fries",x:670,y:405,calories:420},
 			{type:"villain", name:"sodacan",x:765,y:400,calories:150},
 
-			{type:"hero", name:"strawberry",x:30,y:415},
-			{type:"hero", name:"orange",x:80,y:405},
-			{type:"hero", name:"apple",x:140,y:405},
+			{type:"hero", name:"quickball",x:30,y:415},
+			{type:"hero", name:"superball",x:80,y:405},
+			{type:"hero", name:"pokeball",x:140,y:405},
 		]
 	},
 	//Tercer nivel
@@ -480,8 +480,8 @@ var levels = {
 			{type:"villain", name:"fries",x:700,y:340,calories:420},
 			{type:"villain", name:"burger",x:700,y:185,calories:420},
 			
-			{type:"hero", name:"watermelon",x:30,y:375},
-			{type:"hero", name:"apple",x:80,y:365}
+			{type:"hero", name:"ultraball",x:30,y:375},
+			{type:"hero", name:"pokeball",x:80,y:365}
 		]
 	},
 	//Cuarto nivel
@@ -519,8 +519,8 @@ var levels = {
 			
 			{type:"villain", name:"pizza",x:750,y:370,calories:350},
 			
-			{type:"hero", name:"coconut",x:30,y:435},
-			{type:"hero", name:"lemon",x:80,y:425}
+			{type:"hero", name:"quickball",x:30,y:435},
+			{type:"hero", name:"superball",x:80,y:425}
 		]
 	},
 	//Quinto nivel
@@ -545,8 +545,8 @@ var levels = {
 			{type:"block", name:"glass", x:660,y:310,angle:50,width:150,height:25},								
 			{type:"villain", name:"sodaglass",x:605,y:310,calories:350},
 
-			{type:"hero", name:"apple",x:80,y:435},
-			{type:"hero", name:"lemon",x:140,y:435},
+			{type:"hero", name:"pokeball",x:80,y:435},
+			{type:"hero", name:"ultraball",x:140,y:435},
 		]
 	}
 	],
@@ -679,48 +679,35 @@ var entities = {
 			friction:0.5,
 			restitution:0.6,	
 		},
-		"apple":{
+		"pokeball":{
 			shape:"circle",
 			radius:25,
 			density:1.5,
 			friction:0.5,
 			restitution:0.4,	
 		},
-		"orange":{
+		"superball":{
 			shape:"circle",
 			radius:25,
-			density:1.5,
+			density:1.7,
 			friction:0.5,
 			restitution:0.4,	
 		},
-		"strawberry":{
-			shape:"circle",
-			radius:15,
-			density:2.0,
-			friction:0.5,
-			restitution:0.4,	
-		},
-		"coconut":{
+		"ultraball":{
 			shape:"circle",
 			radius:25,
 			density:2.0,
 			friction:0.5,
 			restitution:0.4,	
 		},
-		"watermelon":{
-			shape:"circle",
-			radius:30,
-			density:2.0,
-			friction:0.5,
-			restitution:0.4,	
-		},
-		"lemon":{
+		"quickball":{
 			shape:"circle",
 			radius:15,
 			density:1.2,
 			friction:0.5,
 			restitution:0.4,	
 		},
+		
 	},
 	
 	// Función que crea la entidad box2d y la añade al mundo
