@@ -793,7 +793,7 @@ var box2d = {
 		box2d.world = new b2World(gravity,allowSleep);
 		
 		//Configurar la depuración del dibujo
-		var debugContext = document.getElementById('debugcanvas').getContext('2d');
+		/*var debugContext = document.getElementById('debugcanvas').getContext('2d');
 		var debugDraw = new b2DebugDraw();
 		debugDraw.SetSprite(debugContext);
 		debugDraw.SetDrawScale(box2d.scale);
@@ -801,7 +801,7 @@ var box2d = {
 		debugDraw.SetLineThickness(1.0);
 		debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);	
 		box2d.world.SetDebugDraw(debugDraw);
-		
+		*/
 		var listener = new Box2D.Dynamics.b2ContactListener;
 		listener.PostSolve = function(contact,impulse){
 			var body1 = contact.GetFixtureA().GetBody();
