@@ -524,7 +524,7 @@ var levels = {
 			{type:"villain", name:"charmander",x:750,y:370,calories:350},
 			
 			{type:"hero", name:"quickball",x:30,y:435},
-			{type:"hero", name:"superball",x:80,y:425}
+			{type:"hero", name:"ultraball",x:80,y:425}
 		]
 	},
 	//Quinto nivel
@@ -550,7 +550,7 @@ var levels = {
 			{type:"villain", name:"bulbasaur",x:605,y:310,calories:350},
 
 			{type:"hero", name:"pokeball",x:80,y:435},
-			{type:"hero", name:"ultraball",x:140,y:435},
+			{type:"hero", name:"quickball",x:140,y:435},
 		]
 	}
 	],
